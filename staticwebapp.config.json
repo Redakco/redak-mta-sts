@@ -1,19 +1,16 @@
 {
-  "mimeTypes": {
-    ".txt": "text/plain"
-  },
   "routes": [
     {
-      "route": "/.well-known/mta-sts.txt",
-      "rewrite": "/mta-sts.txt",
-      "headers": {
-        "Cache-Control": "public, max-age=3600",
-        "Content-Type": "text/plain; charset=utf-8"
-      }
+      "route": "/.well-known/*",
+      "allowedRoles": ["anonymous"]
     }
   ],
+  "mimeTypes": {
+    ".txt": "text/plain",
+    ".json": "application/json"
+  },
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["/.well-known/*", "/mta-sts.txt"]
+    "exclude": ["/.well-known/*"]
   }
 }
